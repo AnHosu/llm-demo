@@ -18,7 +18,7 @@ def start_application(lifespan: AsyncGenerator = None) -> FastAPI:
     """
     Creates a FastAPI instance and attaches all endpoints.
     """
-    app = FastAPI(title="My API", lifespan=lifespan)
+    app = FastAPI(title="What should we eat?", lifespan=lifespan)
     app.include_router(root.router)
     return app
 
