@@ -3,7 +3,7 @@ from typing import AsyncGenerator
 
 from fastapi import FastAPI
 
-from .v1.endpoints import root
+from .v1.endpoints import root, complaints
 
 
 @asynccontextmanager
@@ -18,7 +18,8 @@ def start_application(lifespan: AsyncGenerator = None) -> FastAPI:
     """
     Creates a FastAPI instance and attaches all endpoints.
     """
-    app = FastAPI(title="What should we eat?", lifespan=lifespan)
+    app = FastAPI(title="Please parse my complaints", lifespan=lifespan)
+    app.include_router(complaints.router, prefix="/v1")
     app.include_router(root.router)
     return app
 

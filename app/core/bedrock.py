@@ -27,7 +27,7 @@ class BedrockService(object):
             region_name=self.region
         )
         self.model_kwargs = {
-            "modelId": "ai21.j2-mid-v1",
+            "modelId": "ai21.j2-ultra-v1",
             "contentType": "application/json",
             "accept": "*/*"
         }
@@ -58,4 +58,4 @@ class BedrockService(object):
             **self.model_kwargs
         )
         output = json.loads(response.get("body").read())
-        return output["completions"][0]["data"]["text"]
+        return output.get("completions")[0].get("data").get("text")
