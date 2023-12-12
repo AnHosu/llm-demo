@@ -9,7 +9,9 @@ services:
       - ./app:/app/app
     environment:
     - MAX_WORKERS=10
-    - CONFIG_ACTIVE=develop
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - AWS_REGION=${AWS_REGION}
     networks:
       - my-network
 
