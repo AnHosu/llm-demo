@@ -1,0 +1,17 @@
+version: "3.9"
+
+services: 
+  my-api:
+    build: .
+    ports: 
+    - "8040:80"
+    volumes:
+      - ./app:/app/app
+    environment:
+    - MAX_WORKERS=10
+    - CONFIG_ACTIVE=develop
+    networks:
+      - my-network
+
+networks:
+  my-network:
